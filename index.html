@@ -600,6 +600,30 @@ nav{
 .disc-l{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--t3);cursor:pointer;transition:.12s}
 .disc-l:hover{color:var(--t1)}
 
+/* ─── MOBILE MENU ─── */
+.mob-menu{display:none;background:none;border:none;color:var(--t2);cursor:pointer;padding:4px}
+.mob-overlay{
+  position:fixed;inset:0;z-index:700;
+  background:var(--ink);
+  display:flex;flex-direction:column;
+  padding:16px;
+  transform:translateX(100%);transition:transform .3s ease;
+}
+.mob-overlay.open{transform:translateX(0)}
+.mob-overlay-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:32px}
+.mob-close{background:none;border:none;color:var(--t2);cursor:pointer;padding:4px}
+.mob-overlay-links{display:flex;flex-direction:column;gap:4px;flex:1}
+.mob-link{
+  padding:14px 8px;font-size:16px;font-weight:500;color:var(--t1);
+  border-bottom:1px solid var(--border);cursor:pointer;
+  text-decoration:none;font-family:'Inter',sans-serif;
+}
+.mob-link:active{color:var(--green)}
+.mob-overlay-btns{display:flex;flex-direction:column;gap:8px;padding-top:16px;border-top:1px solid var(--border)}
+
+@media(min-width:641px){.mob-overlay{display:none!important}}
+@media(max-width:640px){.mob-menu{display:block}}
+
 /* ─── ANIMATIONS ─── */
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .fu{animation:fadeUp .6s ease both}
@@ -625,6 +649,175 @@ nav{
   .footer-wrap{padding:40px 20px 20px}
   .persona-bar{padding:0 20px;overflow-x:auto}
   .part-strip{padding:36px 20px}
+}
+
+/* ─── MOBILE ─── */
+@media(max-width:640px){
+  /* Nav: hide links, show only logo + CTA */
+  nav{padding:0 16px;height:50px}
+  .n-links{display:none}
+  .n-end{gap:6px}
+  .nav-chain{display:none}
+  .lang-toggle{display:none}
+  .n-btn{padding:6px 12px;font-size:11px}
+  .n-mark{width:24px;height:24px}
+  .n-wordmark{font-size:14px}
+
+  /* Ticker */
+  .ticker{margin-top:50px;padding:5px 0}
+
+  /* Hero */
+  .hero{min-height:auto;padding:50px 16px 40px}
+  .hero-h1{font-size:32px;letter-spacing:-1.5px;margin-bottom:14px}
+  .hero-sub{font-size:14px;margin-bottom:24px}
+  .hero-overline{font-size:9px;margin-bottom:16px}
+  .hero-cta-row{flex-direction:column;gap:8px;margin-bottom:36px}
+  .hero-cta-row .btn-lg{width:100%;text-align:center}
+  .hero-stats{gap:20px;flex-wrap:wrap;justify-content:center}
+  .hs-n{font-size:18px}
+  .hs-l{font-size:8.5px}
+
+  /* Metrics strip */
+  .metrics-strip{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .metrics-inner{grid-template-columns:1fr;padding:0 16px}
+  .metric{padding:16px;border-right:none;border-bottom:1px solid var(--border)}
+  .metric:last-child{border-bottom:none}
+  .m-v{font-size:20px}
+
+  /* Persona bar */
+  .persona-bar{padding:0 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;gap:0}
+  .persona-bar::-webkit-scrollbar{display:none}
+  .persona-tab{padding:12px 16px;white-space:nowrap;flex-shrink:0}
+  .persona-tab .pt-label{font-size:12px}
+  .pt-desc{display:none}
+  .pt-icon{width:16px;height:16px}
+
+  /* Sections */
+  .sec{padding:40px 16px}
+  .h2{font-size:24px;letter-spacing:-1px;margin-bottom:10px}
+  .h2-sub{font-size:13px;margin-bottom:32px}
+  .eyebrow{font-size:9px;margin-bottom:10px}
+
+  /* Flow bar — stack vertically */
+  .flow-bar{flex-direction:column}
+  .flow-step{border-right:none;border-bottom:1px solid var(--border);padding:12px 16px}
+  .flow-step:last-child{border-bottom:none}
+  .fs-title{font-size:11.5px}
+  .fs-sub{font-size:10px}
+
+  /* Stats */
+  .stats-4{grid-template-columns:1fr 1fr}
+  .stats-3{grid-template-columns:1fr}
+  .stat-card{padding:14px}
+  .sc-n{font-size:18px}
+
+  /* Cards */
+  .card-head{padding:12px 16px}
+  .card-body{padding:14px 16px}
+  .card-title{font-size:12px}
+  .fund-item{padding:12px 16px;gap:10px}
+  .fi-icon{width:30px;height:30px}
+  .fi-name{font-size:12px}
+  .fi-meta{font-size:10px}
+  .fi-nav{font-size:13px}
+
+  /* Two col */
+  .two-col{gap:12px}
+
+  /* Timeline */
+  .tl-item{padding:10px 16px}
+  .tl-dot{width:22px;height:22px}
+  .tl-t{font-size:12px}
+  .tl-s{font-size:10px}
+
+  /* Chain box */
+  .chain-box{padding:12px}
+  .cb-key,.cb-val{font-size:10px}
+
+  /* Portfolio hero */
+  .port-hero{padding:18px}
+  .ph-inner{gap:16px}
+  .ph-val{font-size:24px}
+  .ph-divider{display:none}
+  .ph-stat{min-width:auto}
+  .ph-stat-n{font-size:15px}
+  .ph-inner{justify-content:space-between}
+
+  /* KYC steps */
+  .kyc-step{padding:12px;gap:10px;flex-wrap:wrap}
+  .ks-t{font-size:12px}
+  .ks-s{font-size:10px}
+  .ks-n{width:24px;height:24px;font-size:10px}
+
+  /* Why grid */
+  .wc{padding:20px}
+  .wc-t{font-size:12.5px}
+  .wc-d{font-size:11.5px}
+  .wc-n{font-size:17px}
+
+  /* How grid */
+  .how-grid{grid-template-columns:1fr}
+  .how-step{padding:20px}
+
+  /* CTA */
+  .cta-row{padding:40px 16px;gap:24px}
+  .cta-h{font-size:22px;letter-spacing:-1px}
+  .cta-sub{font-size:13px;margin-bottom:20px}
+  .cta-btns{flex-direction:column}
+  .cta-btns .btn-lg{width:100%;text-align:center}
+
+  /* AI Hero */
+  .ai-hero-grid{padding:30px 16px}
+  .ai-h{font-size:28px;letter-spacing:-1.5px}
+  .ai-sub{font-size:13px}
+  .ai-actions{flex-direction:column;gap:8px}
+  .ai-actions .btn-lg{width:100%;text-align:center}
+  .ai-stats{gap:16px;flex-wrap:wrap}
+  .ais-n{font-size:17px}
+
+  /* Terminal */
+  .terminal{border-radius:6px}
+  .term-body{padding:12px 14px;font-size:10.5px;min-height:200px}
+  .t-tab{padding:6px 10px;font-size:9px}
+  .term-footer{padding:7px 14px}
+  .tf-s{font-size:9px}
+  .fr{grid-template-columns:18px 1fr auto auto;gap:0 8px;font-size:10px}
+  .fr-nav2{display:none}
+  .ep-row{flex-wrap:wrap;gap:6px;padding:8px 10px}
+  .ep-desc{text-align:left;width:100%;font-size:10px;margin-top:2px}
+
+  /* Data layer diagram */
+  .lb-block{padding:14px}
+  .lb-title2{font-size:12px}
+  .lb-item{font-size:10.5px}
+
+  /* Use cases */
+  .uc-card{padding:14px;gap:10px}
+  .uc-t{font-size:12px}
+  .uc-d{font-size:11px}
+
+  /* Partners */
+  .part-strip{padding:24px 16px}
+  .part-row{gap:0;flex-wrap:wrap}
+  .part-item{padding:8px 16px;border-right:none;border-bottom:1px solid var(--border)}
+
+  /* Footer */
+  .footer-wrap{padding:24px 16px 16px}
+  .ft{flex-direction:column;gap:20px}
+  .fc-cols{flex-direction:column;gap:20px}
+  .fb-btm{flex-direction:column;gap:8px;text-align:center}
+  .fb-copy{font-size:9px}
+  .fb-sub{font-size:9px}
+
+  /* Buttons */
+  .btn-lg{padding:11px 20px;font-size:13px;border-radius:6px}
+
+  /* Table */
+  .dtable{font-size:11px}
+  .dtable th,.dtable td{padding:8px 10px}
+
+  /* Code block */
+  .code-line{font-size:10px;line-height:1.7;overflow-x:auto}
 }
 </style>
 </head>
@@ -656,8 +849,32 @@ nav{
     </div>
     <button class="n-btn">로그인</button>
     <button class="n-btn n-btn-cta">시작하기</button>
+    <button class="mob-menu" onclick="toggleMobileMenu()" aria-label="Menu">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </nav>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mob-overlay" id="mobOverlay">
+  <div class="mob-overlay-head">
+    <span class="n-wordmark">Kora</span>
+    <button class="mob-close" onclick="toggleMobileMenu()" aria-label="Close">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M5 5l10 10M15 5L5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <div class="mob-overlay-links">
+    <a class="mob-link" onclick="switchPersona('manager');toggleMobileMenu()">운용사</a>
+    <a class="mob-link" onclick="switchPersona('investor');toggleMobileMenu()">기관 투자자</a>
+    <a class="mob-link" onclick="switchPersona('ai');toggleMobileMenu()">AI Agent</a>
+    <a class="mob-link">데이터 API</a>
+    <a class="mob-link">소개</a>
+  </div>
+  <div class="mob-overlay-btns">
+    <button class="btn-lg btn-lg-ghost" style="width:100%;text-align:center">로그인</button>
+    <button class="btn-lg btn-lg-green" style="width:100%;text-align:center">시작하기</button>
+  </div>
+</div>
 
 <!-- ══ LIVE TICKER ══ -->
 <div class="ticker">
@@ -1352,6 +1569,12 @@ function copyHash(el) {
   const t = document.getElementById('toast');
   t.style.opacity = '1'; t.style.transform = 'translateX(-50%) translateY(0)';
   setTimeout(() => { t.style.opacity='0'; t.style.transform='translateX(-50%) translateY(80px)'; }, 2000);
+}
+
+// ── MOBILE MENU ──
+function toggleMobileMenu() {
+  document.getElementById('mobOverlay').classList.toggle('open');
+  document.body.style.overflow = document.getElementById('mobOverlay').classList.contains('open') ? 'hidden' : '';
 }
 
 // ── LIVE NAV UPDATE ──
